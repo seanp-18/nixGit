@@ -36,6 +36,14 @@
 
   #Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.nixPath = ["nixos-config=/home/Cawner/nixos/configuration.nix"
+  		 "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+		 "/nix/var/nix/profiles/per-user/root/channels"
+  ];
+  nix.gc = {
+  automatic = true;
+  options = "--delete-older-than 30d";
+  };
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
@@ -45,6 +53,7 @@
   environment.systemPackages = [
 	pkgs.neovim
 	pkgs.git
+	pkgs.usbutils
 ];  
 	services.kmscon = {
 	enable = true;
