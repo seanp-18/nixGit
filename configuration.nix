@@ -54,6 +54,7 @@
 	pkgs.neovim
 	pkgs.git
 	pkgs.usbutils
+	pkgs.home-manager
 ];  
 	services.kmscon = {
 	enable = true;
